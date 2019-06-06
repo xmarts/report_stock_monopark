@@ -9,9 +9,15 @@
 			                <thead>
 			                  <tr>
 			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
-			                    <th >Imagen:</th>
-			                    <th >Descripción:</th>
-			                    <th >Obervaciones:</th>
+			                    <th>Imagen:</th>
+			                    <th>Nombre:</th>
+			                    <th>Descripción:</th>
+			                    <th>Obervaciones:</th>
+			                    <th>LAB. Guadalajara: </th>
+								<th>LAB. Naucalpan:</th>
+								<th>LAB. Merida:</th>
+								<th>Transito LAB. GDL</th>
+								<th>Transito LAB. Naucalpan</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
@@ -30,6 +36,9 @@
 			                      <span t-field="o.name"/>
 			                    </td>
 			                    <td>
+									<span t-field="o.description_sale"/>
+			                  	</td>
+			                  	<td>
 									<span t-field="o.description"/>
 			                  	</td>
 			                  </tr>
