@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+
+    <!--INICIO DE WIZARD PARA REPORTES -->
+    <record id="action_wizard_reporte" model="ir.ui.view">
+      <field name="name">Generar reporte</field>
+      <field name="model">wizard.reporte</field>
+      <field name="arch" type="xml">
+      <form>
+        <header></header>
+        <sheet>
+          <group>
+            <field name="type_report" string="Tipo de reporte"/>
+            <field name="type_category" attrs="{'invisible': [('type_report', '!=', 'category')]}"/>
+            <field name="type_product" attrs="{'invisible': [('type_report', '!=', 'product')]}"/>
+            <field name="type_stock" attrs="{'invisible': [('type_report', '!=', 'stock')]}"/>
+          </group>
+        </sheet>
+        <footer>
+          <button string="Generar" type="object" name="open_table" class="btn-primary"/>
+          <button special="cancel" string="Cancelar"/>
+        </footer>
+      </form>
+      </field>
+    </record>
+    <record id="action_view_wizard_reporte" model="ir.actions.act_window">
+      <field name="name">Generar reporte</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">wizard.reporte</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="action_wizard_reporte"/>
+      <field name="target">new</field>
+    </record>
+     <menuitem id="menu_valuation_2" name="Generar Reportes" parent="stock.menu_warehouse_report" sequence="100" action="action_view_wizard_reporte"/>
+   
+  </data>
+</odoo>

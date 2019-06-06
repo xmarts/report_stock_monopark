@@ -1,0 +1,44 @@
+<odoo>
+	
+	<template id="imp_report">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t>
+					<div class="page">
+						<table class="table table-condensed" >
+			                <thead>
+			                  <tr>
+			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
+			                    <th >Imagen:</th>
+			                    <th >Descripción:</th>
+			                    <th >Obervaciones:</th>
+			                  </tr>
+			                </thead>
+			                <tbody class="invoice_tbody">
+			                  <tr t-foreach="docs" t-as="o">
+			                    <td>
+			                    	<span>
+			                    		<t t-if="o.image_small">
+			                    			<img t-attf-src="data:image/*;base64,{{o.image_small}}"/>
+			                    		</t>
+			                    		<t t-else="">
+			                    			<span>Sin imagen</span>
+			                    		</t>
+			                    	</span>
+			                    </td>
+			                    <td>
+			                      <span t-field="o.name"/>
+			                    </td>
+			                    <td>
+									<span t-field="o.description"/>
+			                  	</td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+</odoo>
